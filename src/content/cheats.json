@@ -1,0 +1,42 @@
+{
+  "sections": [
+    {
+      "id": "html",
+      "title": "HTML",
+      "items": [
+        {
+          "title": "Minimal Document",
+          "lang": "html",
+          "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Page</title>\n  </head>\n  <body>\n    <h1>Hello</h1>\n  </body>\n</html>\n"
+        },
+        {
+          "title": "Form Basics",
+          "lang": "html",
+          "code": "<form method=\"post\" action=\"/submit\">\n  <label>\n    Email\n    <input name=\"email\" type=\"email\" autocomplete=\"email\" required />\n  </label>\n\n  <label>\n    Password\n    <input name=\"password\" type=\"password\" minlength=\"8\" required />\n  </label>\n\n  <button type=\"submit\">Sign in</button>\n</form>\n"
+        }
+      ]
+    },
+    {
+      "id": "css",
+      "title": "CSS",
+      "items": [
+        {
+          "title": "System Theme Variables",
+          "lang": "css",
+          "code": ":root {\n  color-scheme: light dark;\n  --bg: #fff;\n  --fg: #111;\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n    --bg: #0b0d10;\n    --fg: #e6e6e6;\n  }\n}\n"
+        }
+      ]
+    },
+    {
+      "id": "js",
+      "title": "JavaScript",
+      "items": [
+        {
+          "title": "Fetch + JSON",
+          "lang": "javascript",
+          "code": "const res = await fetch(\"/api/data\");\nif (!res.ok) throw new Error(`HTTP ${res.status}`);\nconst data = await res.json();\n"
+        }
+      ]
+    }
+  ]
+}

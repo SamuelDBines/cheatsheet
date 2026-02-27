@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>HTML · Cheatsheet</title>
+
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/styles/github.min.css" media="(prefers-color-scheme: light)" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/styles/github-dark.min.css" media="(prefers-color-scheme: dark)" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="site-title">
+          <a href="./index.html">Cheatsheet</a>
+          <span class="site-tagline">A mind-dump of syntax and patterns (mostly HTML).</span>
+        </div>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="./index.html">Home</a>
+          <a href="./html.html">HTML</a>
+          <a href="./css.html">CSS</a>
+          <a href="./js.html">JS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      
+  
+    
+      <section class="cheat-section" id="html">
+  <h2>HTML</h2>
+
+  <div class="cheat-grid">
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Minimal Document</h3>
+          <div class="cheat-card__meta">
+            <code>html</code>
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          <pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Form Basics</h3>
+          <div class="cheat-card__meta">
+            <code>html</code>
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          <pre><code class="language-html">&lt;form method=&quot;post&quot; action=&quot;/submit&quot;&gt;
+  &lt;label&gt;
+    Email
+    &lt;input name=&quot;email&quot; type=&quot;email&quot; autocomplete=&quot;email&quot; required /&gt;
+  &lt;/label&gt;
+
+  &lt;label&gt;
+    Password
+    &lt;input name=&quot;password&quot; type=&quot;password&quot; minlength=&quot;8&quot; required /&gt;
+  &lt;/label&gt;
+
+  &lt;button type=&quot;submit&quot;&gt;Sign in&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+        </div>
+      </article>
+    
+  </div>
+</section>
+
+    
+  
+    
+  
+    
+  
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>Built from Nunchucks templates into <code>public/</code>.</small>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/highlight.min.js"></script>
+    <script type="module" src="./assets/site.js"></script>
+  </body>
+</html>

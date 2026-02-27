@@ -1,0 +1,11 @@
+{% extends "layouts/base.njk" %}
+
+{% set pageTitle = "HTML" %}
+
+{% block content %}
+  {% for section in cheats.sections %}
+    {% if section.id == "html" %}
+      {% include "includes/cheat-section.njk" %}
+    {% endif %}
+  {% endfor %}
+{% endblock %}
