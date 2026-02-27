@@ -1,6 +1,6 @@
 # Cheatsheet
 
-A simple, system-themed cheatsheet site (mostly HTML) built from Nunchucks templates into `public/` and deployed to GitHub Pages.
+A simple, system-themed cheatsheet site (mostly HTML) built from Nunjucks templates into `public/` and deployed to GitHub Pages.
 
 ## Structure
 
@@ -52,13 +52,22 @@ By default, blocks are read-only unless `data-editable="true"`.
 
 ## Using the local `../nunjucks/` library (optional)
 
-This repo depends on the published `@samuelbines/nunchucks` package. If you want to develop against your local checkout:
+The build currently uses the standard `nunjucks` npm package.
+
+If you want to switch the renderer to your Go/WASM Nunchucks runtime in `../nunjucks/`, install it locally and update `scripts/build.mjs` to use it.
 
 ```bash
 npm install ../nunjucks
 ```
 
 ## Bareframe (optional)
+
+Bareframe is loaded via CDN by default:
+
+```txt
+https://bareframe.org/versions/0.1.3/bareframe.min.js
+https://bareframe.org/versions/0.1.3/themes/system.css
+```
 
 If you add the Bareframe repo alongside this project (or as a submodule), the simplest approach is to vendor its built output into `public/` yourself.
 
