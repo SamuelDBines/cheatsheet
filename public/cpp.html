@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <title>HTML · Cheatsheet</title>
+    <title>C++ · Cheatsheet</title>
 
     <link rel="stylesheet" href="https://bareframe.org/versions/0.1.3/themes/system.css" />
     <link rel="stylesheet" href="./assets/styles.css" />
@@ -57,57 +57,43 @@
 
     <main class="container">
       
-  <section class="cheat-section" id="html">
-  <h2>HTML</h2>
+  <section class="cheat-section" id="cpp">
+  <h2>C++</h2>
 
   <div class="cheat-grid">
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Minimal Document</h3>
+          <h3>RAII + vector</h3>
           <div class="cheat-card__meta">
-            <code>html</code>
+            <code>cpp</code>
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-html">&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot; /&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
-    &lt;title&gt;Page&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Hello&lt;/h1&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+          <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main() {
+  std::vector&lt;int&gt; xs{1, 2, 3};
+  std::cout &lt;&lt; xs.size() &lt;&lt; &quot;&#92;n&quot;;
+}
 </code></pre>
         </div>
       </article>
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Form Basics</h3>
+          <h3>Unique ptr</h3>
           <div class="cheat-card__meta">
-            <code>html</code>
+            <code>cpp</code>
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-html">&lt;form method=&quot;post&quot; action=&quot;/submit&quot;&gt;
-  &lt;label&gt;
-    Email
-    &lt;input name=&quot;email&quot; type=&quot;email&quot; autocomplete=&quot;email&quot; required /&gt;
-  &lt;/label&gt;
+          <pre><code class="language-cpp">#include &lt;memory&gt;
 
-  &lt;label&gt;
-    Password
-    &lt;input name=&quot;password&quot; type=&quot;password&quot; minlength=&quot;8&quot; required /&gt;
-  &lt;/label&gt;
-
-  &lt;button type=&quot;submit&quot;&gt;Sign in&lt;/button&gt;
-&lt;/form&gt;
+auto p = std::make_unique&lt;int&gt;(42);
 </code></pre>
         </div>
       </article>

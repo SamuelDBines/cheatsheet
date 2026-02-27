@@ -38,20 +38,36 @@ async function readJson(jsonPath) {
 }
 
 async function renderPages({ env, context }) {
+  // Render non-section pages under src/pages (excluding section template).
   const all = await walkFiles(pagesDir);
-  const pageTemplates = all.filter((f) => f.endsWith(".njk"));
+  const pageTemplates = all
+    .filter((f) => f.endsWith(".njk"))
+    .map((f) => toPosixPath(path.relative(srcDir, f)))
+    .filter((rel) => rel !== "pages/section.njk");
 
-  for (const pagePath of pageTemplates) {
-    const rel = toPosixPath(path.relative(srcDir, pagePath));
-    const outRel = rel
-      .replace(/^pages\//, "")
-      .replace(/\.njk$/, ".html");
+  for (const rel of pageTemplates) {
+    const outRel = rel.replace(/^pages\//, "").replace(/\.njk$/, ".html");
     const outPath = path.join(outDir, outRel);
 
     await ensureDir(path.dirname(outPath));
     const html = env.render(rel, {
       ...context,
       page: { template: rel, out: outRel },
+    });
+    await fs.writeFile(outPath, html, "utf8");
+  }
+
+  // Render one page per cheats section.
+  for (const section of context.cheats.sections || []) {
+    const outRel = `${section.id}.html`;
+    const outPath = path.join(outDir, outRel);
+    await ensureDir(path.dirname(outPath));
+
+    const html = env.render("pages/section.njk", {
+      ...context,
+      section,
+      pageTitle: section.title,
+      page: { template: "pages/section.njk", out: outRel },
     });
     await fs.writeFile(outPath, html, "utf8");
   }
@@ -79,9 +95,16 @@ async function copyVendors() {
   const aceFiles = [
     "ace.js",
     "ext-language_tools.js",
+    "mode-c_cpp.js",
     "mode-html.js",
     "mode-javascript.js",
+    "mode-jsx.js",
+    "mode-lua.js",
+    "mode-golang.js",
+    "mode-python.js",
+    "mode-sh.js",
     "mode-typescript.js",
+    "mode-tsx.js",
     "mode-css.js",
     "mode-json.js",
     "theme-github.js",

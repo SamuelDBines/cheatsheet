@@ -5,6 +5,7 @@ A simple, system-themed cheatsheet site (mostly HTML) built from Nunjucks templa
 ## Structure
 
 - `src/pages/` — page templates (`*.njk`)
+- `src/pages/section.njk` — template used to generate one page per section
 - `src/layouts/` — shared layouts
 - `src/includes/` — partials
 - `src/content/cheats.json` — your cheat sections + code snippets
@@ -26,6 +27,8 @@ Open `http://localhost:4321`.
 ## Editing content
 
 Add/update snippets in `src/content/cheats.json`.
+
+Each top-level entry in `sections[]` generates a page at `public/<id>.html`.
 
 Each snippet looks like:
 

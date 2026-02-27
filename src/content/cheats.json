@@ -35,6 +35,172 @@
           "title": "Fetch + JSON",
           "lang": "javascript",
           "code": "const res = await fetch(\"/api/data\");\nif (!res.ok) throw new Error(`HTTP ${res.status}`);\nconst data = await res.json();\n"
+        },
+        {
+          "title": "DOM query + event",
+          "lang": "javascript",
+          "code": "const btn = document.querySelector(\"button#save\");\nbtn?.addEventListener(\"click\", () => {\n  console.log(\"save\");\n});\n"
+        }
+      ]
+    },
+    {
+      "id": "ts",
+      "title": "TypeScript",
+      "items": [
+        {
+          "title": "Type + function",
+          "lang": "typescript",
+          "code": "type User = { id: string; email: string };\n\nexport function toEmail(u: User): string {\n  return u.email;\n}\n"
+        },
+        {
+          "title": "Narrowing",
+          "lang": "typescript",
+          "code": "function isError(x: unknown): x is Error {\n  return x instanceof Error;\n}\n"
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "title": "Python",
+      "items": [
+        {
+          "title": "Virtualenv + run",
+          "lang": "bash",
+          "code": "python -m venv .venv\nsource .venv/bin/activate\npython main.py\n"
+        },
+        {
+          "title": "Dataclass",
+          "lang": "python",
+          "code": "from dataclasses import dataclass\n\n@dataclass(frozen=True)\nclass User:\n    id: str\n    email: str\n"
+        },
+        {
+          "title": "Typing + async",
+          "lang": "python",
+          "code": "from typing import Any\n\nasync def fetch_json(url: str) -> dict[str, Any]:\n    import aiohttp\n    async with aiohttp.ClientSession() as s:\n        async with s.get(url) as r:\n            r.raise_for_status()\n            return await r.json()\n"
+        }
+      ]
+    },
+    {
+      "id": "go",
+      "title": "Golang",
+      "items": [
+        {
+          "title": "Basic types + function",
+          "lang": "go",
+          "code": "package main\n\nimport \"fmt\"\n\ntype User struct {\n\tID    string\n\tEmail string\n}\n\nfunc main() {\n\tu := User{ID: \"1\", Email: \"a@b.com\"}\n\tfmt.Println(u.Email)\n}\n"
+        },
+        {
+          "title": "Error wrapping",
+          "lang": "go",
+          "code": "if err != nil {\n\treturn fmt.Errorf(\"open config: %w\", err)\n}\n"
+        }
+      ]
+    },
+    {
+      "id": "c",
+      "title": "C",
+      "items": [
+        {
+          "title": "Hello + argc/argv",
+          "lang": "c",
+          "code": "#include <stdio.h>\n\nint main(int argc, char **argv) {\n  (void)argc;\n  (void)argv;\n  printf(\"hello\\n\");\n  return 0;\n}\n"
+        },
+        {
+          "title": "Struct + pointer",
+          "lang": "c",
+          "code": "typedef struct {\n  int x;\n  int y;\n} Point;\n\nvoid move(Point *p, int dx, int dy) {\n  p->x += dx;\n  p->y += dy;\n}\n"
+        }
+      ]
+    },
+    {
+      "id": "cpp",
+      "title": "C++",
+      "items": [
+        {
+          "title": "RAII + vector",
+          "lang": "cpp",
+          "code": "#include <iostream>\n#include <vector>\n\nint main() {\n  std::vector<int> xs{1, 2, 3};\n  std::cout << xs.size() << \"\\n\";\n}\n"
+        },
+        {
+          "title": "Unique ptr",
+          "lang": "cpp",
+          "code": "#include <memory>\n\nauto p = std::make_unique<int>(42);\n"
+        }
+      ]
+    },
+    {
+      "id": "lua",
+      "title": "Lua",
+      "items": [
+        {
+          "title": "Tables",
+          "lang": "lua",
+          "code": "local user = { id = \"1\", email = \"a@b.com\" }\nprint(user.email)\n"
+        },
+        {
+          "title": "Functions",
+          "lang": "lua",
+          "code": "local function add(a, b)\n  return a + b\nend\n"
+        }
+      ]
+    },
+    {
+      "id": "react",
+      "title": "React",
+      "items": [
+        {
+          "title": "Component (TSX)",
+          "lang": "tsx",
+          "code": "type Props = { title: string };\n\nexport function Header({ title }: Props) {\n  return <header><h1>{title}</h1></header>;\n}\n"
+        },
+        {
+          "title": "useEffect pattern",
+          "lang": "tsx",
+          "code": "import { useEffect, useState } from \"react\";\n\nexport function Clock() {\n  const [t, setT] = useState(() => Date.now());\n  useEffect(() => {\n    const id = setInterval(() => setT(Date.now()), 1000);\n    return () => clearInterval(id);\n  }, []);\n  return <time>{new Date(t).toLocaleTimeString()}</time>;\n}\n"
+        }
+      ]
+    },
+    {
+      "id": "solid",
+      "title": "Solid",
+      "items": [
+        {
+          "title": "Signal + component (TSX)",
+          "lang": "tsx",
+          "code": "import { createSignal } from \"solid-js\";\n\nexport function Counter() {\n  const [n, setN] = createSignal(0);\n  return <button onClick={() => setN(n() + 1)}>{n()}</button>;\n}\n"
+        }
+      ]
+    },
+    {
+      "id": "vue",
+      "title": "Vue",
+      "items": [
+        {
+          "title": "SFC (script setup)",
+          "lang": "html",
+          "code": "<script setup lang=\"ts\">\nimport { ref } from \"vue\";\nconst n = ref(0);\n</script>\n\n<template>\n  <button @click=\"n++\">{{ n }}</button>\n</template>\n"
+        }
+      ]
+    },
+    {
+      "id": "angular",
+      "title": "Angular",
+      "items": [
+        {
+          "title": "Standalone component",
+          "lang": "typescript",
+          "code": "import { Component } from \"@angular/core\";\n\n@Component({\n  standalone: true,\n  selector: \"app-hello\",\n  template: `<h1>{{ title }}</h1>`,\n})\nexport class HelloComponent {\n  title = \"Hello\";\n}\n"
+        }
+      ]
+    },
+    {
+      "id": "rxjs",
+      "title": "RxJS",
+      "items": [
+        {
+          "title": "pipe + operators",
+          "lang": "typescript",
+          "code": "import { fromEvent, map, filter, debounceTime } from \"rxjs\";\n\nconst clicks$ = fromEvent<MouseEvent>(document, \"click\").pipe(\n  debounceTime(250),\n  map((e) => ({ x: e.clientX, y: e.clientY })),\n  filter((p) => p.x > 0)\n);\n\nclicks$.subscribe(console.log);\n"
         }
       ]
     }

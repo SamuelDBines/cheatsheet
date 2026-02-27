@@ -23,9 +23,16 @@ async function initAceEditors() {
 
   await loadScript("./vendor/ace/ace.js");
   await loadScript("./vendor/ace/ext-language_tools.js");
+  await loadScript("./vendor/ace/mode-c_cpp.js");
   await loadScript("./vendor/ace/mode-html.js");
   await loadScript("./vendor/ace/mode-javascript.js");
+  await loadScript("./vendor/ace/mode-jsx.js");
+  await loadScript("./vendor/ace/mode-lua.js");
+  await loadScript("./vendor/ace/mode-golang.js");
+  await loadScript("./vendor/ace/mode-python.js");
+  await loadScript("./vendor/ace/mode-sh.js");
   await loadScript("./vendor/ace/mode-typescript.js");
+  await loadScript("./vendor/ace/mode-tsx.js");
   await loadScript("./vendor/ace/mode-css.js");
   await loadScript("./vendor/ace/mode-json.js");
   await loadScript("./vendor/ace/theme-github.js");
@@ -36,12 +43,22 @@ async function initAceEditors() {
   for (const el of nodes) {
     const lang = el.getAttribute("data-lang") || "text";
     const mode = {
+      bash: "ace/mode/sh",
       html: "ace/mode/html",
       css: "ace/mode/css",
+      c: "ace/mode/c_cpp",
+      cpp: "ace/mode/c_cpp",
+      "c++": "ace/mode/c_cpp",
       javascript: "ace/mode/javascript",
       js: "ace/mode/javascript",
+      jsx: "ace/mode/jsx",
       typescript: "ace/mode/typescript",
       ts: "ace/mode/typescript",
+      tsx: "ace/mode/tsx",
+      python: "ace/mode/python",
+      go: "ace/mode/golang",
+      golang: "ace/mode/golang",
+      lua: "ace/mode/lua",
       json: "ace/mode/json",
     }[lang] || "ace/mode/text";
 
