@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,19 +66,92 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Type + function</h3>
+          <h3>TypeScript documentation</h3>
           <div class="cheat-card__meta">
-            <code>typescript</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-typescript">type User = { id: string; email: string };
+          
+            <p class="doc-desc">Official TypeScript handbook (types, narrowing, generics, config).</p>
+            <p class="doc-link">
+              <a href="https://www.typescriptlang.org/docs/" target="_blank" rel="noreferrer">https://www.typescriptlang.org/docs/</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Quickstart (init + run)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">mkdir my-ts &amp;&amp; cd my-ts
+npm init -y
+npm i -D typescript tsx
+npx tsc --init
+printf &#39;console.log(&quot;hi&quot;)&#92;n&#39; &gt; index.ts
+npx tsx index.ts
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (tsconfig basics)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>json</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-json">{
+  &quot;compilerOptions&quot;: {
+    &quot;target&quot;: &quot;ES2022&quot;,
+    &quot;module&quot;: &quot;ESNext&quot;,
+    &quot;moduleResolution&quot;: &quot;Bundler&quot;,
+    &quot;strict&quot;: true,
+    &quot;skipLibCheck&quot;: true
+  }
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Type + function</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">type User = { id: string; email: string };
 
 export function toEmail(u: User): string {
   return u.email;
 }
 </code></pre>
+          
         </div>
       </article>
     
@@ -84,15 +159,151 @@ export function toEmail(u: User): string {
         <header class="cheat-card__header">
           <h3>Narrowing</h3>
           <div class="cheat-card__meta">
-            <code>typescript</code>
+            
+              <code>typescript</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-typescript">function isError(x: unknown): x is Error {
+          
+            <pre><code class="language-typescript">function isError(x: unknown): x is Error {
   return x instanceof Error;
 }
 </code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Variables (type annotations)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">let n: number = 1;
+const ok: boolean = true;
+const tags: string[] = [&quot;a&quot;, &quot;b&quot;];
+const rec: Record&lt;string, number&gt; = { a: 1 };
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Datatypes (union + literal + enum)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">type Status = &quot;idle&quot; | &quot;loading&quot; | &quot;error&quot;;
+
+enum Role {
+  Admin = &quot;admin&quot;,
+  User = &quot;user&quot;,
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Iteration (arrays + maps)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">const xs: number[] = [1, 2, 3];
+for (const x of xs) console.log(x);
+
+const m = new Map&lt;string, number&gt;([[&quot;a&quot;, 1]]);
+for (const [k, v] of m) console.log(k, v);
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Functions (generics)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">function first&lt;T&gt;(xs: T[]): T | undefined {
+  return xs[0];
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Interfaces + classes</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">interface Logger {
+  log(msg: string): void;
+}
+
+class ConsoleLogger implements Logger {
+  log(msg: string) {
+    console.log(msg);
+  }
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Optional chaining + nullish coalescing</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">type User = { profile?: { name?: string } };
+const u: User = {};
+const name = u.profile?.name ?? &quot;Anonymous&quot;;
+</code></pre>
+          
         </div>
       </article>
     

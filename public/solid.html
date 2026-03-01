@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,20 +66,137 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Signal + component (TSX)</h3>
+          <h3>Solid documentation</h3>
           <div class="cheat-card__meta">
-            <code>tsx</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-tsx">import { createSignal } from &quot;solid-js&quot;;
+          
+            <p class="doc-desc">Solid’s docs cover signals, fine-grained reactivity, and component patterns.</p>
+            <p class="doc-link">
+              <a href="https://www.solidjs.com/docs/latest" target="_blank" rel="noreferrer">https://www.solidjs.com/docs/latest</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Quickstart (create Solid app)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">npm create solid@latest my-solid
+cd my-solid
+npm install
+npm run dev
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (signal basics)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>tsx</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-tsx">import { createSignal } from &quot;solid-js&quot;;
+
+const [n, setN] = createSignal(0);
+setN(n() + 1);
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Signal + component (TSX)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>tsx</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-tsx">import { createSignal } from &quot;solid-js&quot;;
 
 export function Counter() {
   const [n, setN] = createSignal(0);
   return &lt;button onClick={() =&gt; setN(n() + 1)}&gt;{n()}&lt;/button&gt;;
 }
 </code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Iteration (&lt;For&gt;)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>tsx</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-tsx">import { For } from &quot;solid-js&quot;;
+
+type Item = { id: string; name: string };
+
+export function List(props: { items: Item[] }) {
+  return (
+    &lt;ul&gt;
+      &lt;For each={props.items}&gt;{(it) =&gt; &lt;li&gt;{it.name}&lt;/li&gt;}&lt;/For&gt;
+    &lt;/ul&gt;
+  );
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Effects (createEffect)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>tsx</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-tsx">import { createEffect, createSignal } from &quot;solid-js&quot;;
+
+const [n, setN] = createSignal(0);
+createEffect(() =&gt; {
+  console.log(&quot;n:&quot;, n());
+});
+</code></pre>
+          
         </div>
       </article>
     

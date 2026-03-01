@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <title>HTML · Cheatsheet</title>
+    <title>Dart · Cheatsheet</title>
 
     <link rel="stylesheet" href="https://bareframe.org/versions/0.1.3/themes/system.css" />
     <link rel="stylesheet" href="./assets/styles.css" />
@@ -59,14 +59,14 @@
 
     <main class="container">
       
-  <section class="cheat-section" id="html">
-  <h2>HTML</h2>
+  <section class="cheat-section" id="dart">
+  <h2>Dart</h2>
 
   <div class="cheat-grid">
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>HTML documentation</h3>
+          <h3>Dart documentation</h3>
           <div class="cheat-card__meta">
             
               <code>docs</code>
@@ -76,9 +76,9 @@
 
         <div class="cheat-card__body">
           
-            <p class="doc-desc">MDN is the best all-around reference for HTML elements, attributes, and browser behavior.</p>
+            <p class="doc-desc">Official Dart docs (language tour, core libraries, tooling).</p>
             <p class="doc-link">
-              <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noreferrer">https://developer.mozilla.org/en-US/docs/Web/HTML</a>
+              <a href="https://dart.dev/guides" target="_blank" rel="noreferrer">https://dart.dev/guides</a>
             </p>
           
         </div>
@@ -86,7 +86,7 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Quickstart (serve a folder)</h3>
+          <h3>Quickstart (create + run)</h3>
           <div class="cheat-card__meta">
             
               <code>bash</code>
@@ -96,9 +96,9 @@
 
         <div class="cheat-card__body">
           
-            <pre><code class="language-bash">cd public
-python -m http.server 8080
-# open http://localhost:8080
+            <pre><code class="language-bash">dart create my_app
+cd my_app
+dart run
 </code></pre>
           
         </div>
@@ -106,27 +106,18 @@ python -m http.server 8080
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Minimal Document</h3>
+          <h3>Project setup (pub add deps)</h3>
           <div class="cheat-card__meta">
             
-              <code>html</code>
+              <code>bash</code>
             
           </div>
         </header>
 
         <div class="cheat-card__body">
           
-            <pre><code class="language-html">&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot; /&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
-    &lt;title&gt;Page&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Hello&lt;/h1&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+            <pre><code class="language-bash">dart pub add http
+# edits pubspec.yaml
 </code></pre>
           
         </div>
@@ -134,29 +125,111 @@ python -m http.server 8080
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Form Basics</h3>
+          <h3>Variables (var/final/const)</h3>
           <div class="cheat-card__meta">
             
-              <code>html</code>
+              <code>dart</code>
             
           </div>
         </header>
 
         <div class="cheat-card__body">
           
-            <pre><code class="language-html">&lt;form method=&quot;post&quot; action=&quot;/submit&quot;&gt;
-  &lt;label&gt;
-    Email
-    &lt;input name=&quot;email&quot; type=&quot;email&quot; autocomplete=&quot;email&quot; required /&gt;
-  &lt;/label&gt;
+            <pre><code class="language-dart">var n = 1;         // inferred, mutable
+final name = &quot;Sam&quot;; // runtime constant, immutable
+const pi = 3.14159; // compile-time constant
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Datatypes (List/Map/Set)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>dart</code>
+            
+          </div>
+        </header>
 
-  &lt;label&gt;
-    Password
-    &lt;input name=&quot;password&quot; type=&quot;password&quot; minlength=&quot;8&quot; required /&gt;
-  &lt;/label&gt;
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-dart">final xs = &lt;int&gt;[1, 2, 3];
+final m = &lt;String, int&gt;{&quot;a&quot;: 1};
+final s = &lt;String&gt;{&quot;a&quot;, &quot;b&quot;};
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Iteration (for, for-in, where/map)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>dart</code>
+            
+          </div>
+        </header>
 
-  &lt;button type=&quot;submit&quot;&gt;Sign in&lt;/button&gt;
-&lt;/form&gt;
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-dart">final xs = [1, 2, 3];
+
+for (var i = 0; i &lt; xs.length; i++) {
+  print(xs[i]);
+}
+
+for (final x in xs) {
+  print(x);
+}
+
+final evens = xs.where((x) =&gt; x.isEven).toList();
+final doubled = xs.map((x) =&gt; x * 2).toList();
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Functions (named + optional args)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>dart</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-dart">int add(int a, int b) =&gt; a + b;
+
+String greet(String name, {String prefix = &quot;hi&quot;}) {
+  return &quot;$prefix $name&quot;;
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Classes (constructor + field)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>dart</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-dart">class User {
+  final String email;
+  User(this.email);
+}
 </code></pre>
           
         </div>

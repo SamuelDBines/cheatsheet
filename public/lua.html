@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,16 +66,81 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Tables</h3>
+          <h3>Lua documentation</h3>
           <div class="cheat-card__meta">
-            <code>lua</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-lua">local user = { id = &quot;1&quot;, email = &quot;a@b.com&quot; }
+          
+            <p class="doc-desc">The official Lua manual is short and very readable (syntax, standard library).</p>
+            <p class="doc-link">
+              <a href="https://www.lua.org/manual/5.4/" target="_blank" rel="noreferrer">https://www.lua.org/manual/5.4/</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Quickstart (run a script)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">cat &gt; main.lua &lt;&lt;&#39;EOF&#39;
+print(&quot;hello&quot;)
+EOF
+
+lua main.lua
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (LuaRocks)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">luarocks init --lua-version=5.4
+# edit rockspec as needed
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Tables</h3>
+          <div class="cheat-card__meta">
+            
+              <code>lua</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-lua">local user = { id = &quot;1&quot;, email = &quot;a@b.com&quot; }
 print(user.email)
 </code></pre>
+          
         </div>
       </article>
     
@@ -81,15 +148,119 @@ print(user.email)
         <header class="cheat-card__header">
           <h3>Functions</h3>
           <div class="cheat-card__meta">
-            <code>lua</code>
+            
+              <code>lua</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-lua">local function add(a, b)
+          
+            <pre><code class="language-lua">local function add(a, b)
   return a + b
 end
 </code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Variables + basic types</h3>
+          <div class="cheat-card__meta">
+            
+              <code>lua</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-lua">local s = &quot;str&quot;
+local n = 123
+local ok = true
+local nothing = nil
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Iteration (numeric for, ipairs, pairs)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>lua</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-lua">for i = 1, 3 do
+  print(i)
+end
+
+local xs = { &quot;a&quot;, &quot;b&quot; }
+for i, v in ipairs(xs) do
+  print(i, v)
+end
+
+local m = { a = 1, b = 2 }
+for k, v in pairs(m) do
+  print(k, v)
+end
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Tables as maps + arrays</h3>
+          <div class="cheat-card__meta">
+            
+              <code>lua</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-lua">local arr = { 10, 20, 30 }
+local map = { a = 1, b = 2 }
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Simple &quot;class&quot; pattern (tables + metatable)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>lua</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-lua">local User = {}
+User.__index = User
+
+function User.new(email)
+  return setmetatable({ email = email }, User)
+end
+
+function User:to_string()
+  return self.email
+end
+
+local u = User.new(&quot;a@b.com&quot;)
+print(u:to_string())
+</code></pre>
+          
         </div>
       </article>
     

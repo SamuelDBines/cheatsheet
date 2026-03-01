@@ -7,12 +7,23 @@
         <header class="cheat-card__header">
           <h3>{{ item.title }}</h3>
           <div class="cheat-card__meta">
-            <code>{{ item.lang }}</code>
+            {% if item.kind == "doc" %}
+              <code>docs</code>
+            {% else %}
+              <code>{{ item.lang }}</code>
+            {% endif %}
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-{{ item.lang }}">{{ item.code | escape }}</code></pre>
+          {% if item.kind == "doc" %}
+            <p class="doc-desc">{{ item.description }}</p>
+            <p class="doc-link">
+              <a href="{{ item.url }}" target="_blank" rel="noreferrer">{{ item.url }}</a>
+            </p>
+          {% else %}
+            <pre><code class="language-{{ item.lang }}">{{ item.code | escape }}</code></pre>
+          {% endif %}
         </div>
       </article>
     {% endfor %}

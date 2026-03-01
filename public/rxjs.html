@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,14 +66,75 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>pipe + operators</h3>
+          <h3>RxJS documentation</h3>
           <div class="cheat-card__meta">
-            <code>typescript</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-typescript">import { fromEvent, map, filter, debounceTime } from &quot;rxjs&quot;;
+          
+            <p class="doc-desc">Official RxJS docs for Observables, operators, schedulers, and patterns.</p>
+            <p class="doc-link">
+              <a href="https://rxjs.dev/" target="_blank" rel="noreferrer">https://rxjs.dev/</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Quickstart (install)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">npm i rxjs
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (ESM import)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">import { of } from &quot;rxjs&quot;;
+
+of(1, 2, 3).subscribe(console.log);
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>pipe + operators</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">import { fromEvent, map, filter, debounceTime } from &quot;rxjs&quot;;
 
 const clicks$ = fromEvent&lt;MouseEvent&gt;(document, &quot;click&quot;).pipe(
   debounceTime(250),
@@ -81,6 +144,63 @@ const clicks$ = fromEvent&lt;MouseEvent&gt;(document, &quot;click&quot;).pipe(
 
 clicks$.subscribe(console.log);
 </code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Subjects (push values)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">import { Subject } from &quot;rxjs&quot;;
+
+const s = new Subject&lt;number&gt;();
+const sub = s.subscribe((v) =&gt; console.log(v));
+
+s.next(1);
+s.next(2);
+sub.unsubscribe();
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>HTTP-like (switchMap + catchError)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">import { fromEvent, from, of } from &quot;rxjs&quot;;
+import { switchMap, catchError } from &quot;rxjs/operators&quot;;
+
+const btn = document.querySelector(&quot;button#load&quot;)!;
+
+fromEvent(btn, &quot;click&quot;)
+  .pipe(
+    switchMap(() =&gt;
+      from(fetch(&quot;/api/data&quot;).then((r) =&gt; r.json())).pipe(
+        catchError((err) =&gt; of({ error: String(err) }))
+      )
+    )
+  )
+  .subscribe(console.log);
+</code></pre>
+          
         </div>
       </article>
     

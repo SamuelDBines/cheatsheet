@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,14 +66,82 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>RAII + vector</h3>
+          <h3>C++ documentation</h3>
           <div class="cheat-card__meta">
-            <code>cpp</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-cpp">#include &lt;iostream&gt;
+          
+            <p class="doc-desc">cppreference is the best quick reference for modern C++ (STL, language features).</p>
+            <p class="doc-link">
+              <a href="https://en.cppreference.com/w/cpp" target="_blank" rel="noreferrer">https://en.cppreference.com/w/cpp</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Quickstart (compile + run)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">cat &gt; main.cpp &lt;&lt;&#39;EOF&#39;
+#include &lt;iostream&gt;
+int main(){ std::cout &lt;&lt; &quot;hello&#92;n&quot;; }
+EOF
+
+c++ -std=c++20 -Wall -Wextra -O2 main.cpp -o app
+./app
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (CMake minimal)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>cmake</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-cmake">cmake_minimum_required(VERSION 3.20)
+project(app LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
+add_executable(app main.cpp)
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>RAII + vector</h3>
+          <div class="cheat-card__meta">
+            
+              <code>cpp</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;vector&gt;
 
 int main() {
@@ -79,6 +149,7 @@ int main() {
   std::cout &lt;&lt; xs.size() &lt;&lt; &quot;&#92;n&quot;;
 }
 </code></pre>
+          
         </div>
       </article>
     
@@ -86,15 +157,108 @@ int main() {
         <header class="cheat-card__header">
           <h3>Unique ptr</h3>
           <div class="cheat-card__meta">
-            <code>cpp</code>
+            
+              <code>cpp</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-cpp">#include &lt;memory&gt;
+          
+            <pre><code class="language-cpp">#include &lt;memory&gt;
 
 auto p = std::make_unique&lt;int&gt;(42);
 </code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Variables + auto + const</h3>
+          <div class="cheat-card__meta">
+            
+              <code>cpp</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-cpp">int i = 1;
+auto n = 123;        // deduced
+const double pi = 3.14;
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Iteration (range-for)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>cpp</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-cpp">#include &lt;vector&gt;
+
+std::vector&lt;int&gt; xs{1, 2, 3};
+for (const auto &amp;x : xs) {
+  // ...
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Functions (overload)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>cpp</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-cpp">int add(int a, int b) { return a + b; }
+double add(double a, double b) { return a + b; }
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Classes (constructor + method)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>cpp</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-cpp">#include &lt;string&gt;
+
+class User {
+ public:
+  User(std::string email) : email_(std::move(email)) {}
+  const std::string&amp; email() const { return email_; }
+
+ private:
+  std::string email_;
+};
+</code></pre>
+          
         </div>
       </article>
     

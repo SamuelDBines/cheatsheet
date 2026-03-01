@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,14 +66,86 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>SFC (script setup)</h3>
+          <h3>Vue documentation</h3>
           <div class="cheat-card__meta">
-            <code>html</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-html">&lt;script setup lang=&quot;ts&quot;&gt;
+          
+            <p class="doc-desc">Official Vue docs (SFCs, reactivity, directives, composition API).</p>
+            <p class="doc-link">
+              <a href="https://vuejs.org/guide/" target="_blank" rel="noreferrer">https://vuejs.org/guide/</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Quickstart (create-vue)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">npm create vue@latest my-vue
+cd my-vue
+npm install
+npm run dev
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (SFC structure)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>html</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-html">&lt;script setup&gt;
+// state + logic
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!-- UI --&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+/* styles */
+&lt;/style&gt;
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>SFC (script setup)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>html</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-html">&lt;script setup lang=&quot;ts&quot;&gt;
 import { ref } from &quot;vue&quot;;
 const n = ref(0);
 &lt;/script&gt;
@@ -80,6 +154,62 @@ const n = ref(0);
   &lt;button @click=&quot;n++&quot;&gt;{{ n }}&lt;/button&gt;
 &lt;/template&gt;
 </code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Iteration (v-for)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>html</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-html">&lt;script setup lang=&quot;ts&quot;&gt;
+const items = [
+  { id: &quot;1&quot;, name: &quot;A&quot; },
+  { id: &quot;2&quot;, name: &quot;B&quot; },
+];
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&quot;it in items&quot; :key=&quot;it.id&quot;&gt;{{ it.name }}&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/template&gt;
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Computed</h3>
+          <div class="cheat-card__meta">
+            
+              <code>html</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-html">&lt;script setup lang=&quot;ts&quot;&gt;
+import { computed, ref } from &quot;vue&quot;;
+const xs = ref([1, 2, 3]);
+const sum = computed(() =&gt; xs.value.reduce((a, b) =&gt; a + b, 0));
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;output&gt;{{ sum }}&lt;/output&gt;
+&lt;/template&gt;
+</code></pre>
+          
         </div>
       </article>
     

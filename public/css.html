@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,14 +66,58 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>System Theme Variables</h3>
+          <h3>CSS documentation</h3>
           <div class="cheat-card__meta">
-            <code>css</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-css">:root {
+          
+            <p class="doc-desc">MDN CSS reference for properties, selectors, layout, and browser support notes.</p>
+            <p class="doc-link">
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noreferrer">https://developer.mozilla.org/en-US/docs/Web/CSS</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (CSS reset-ish)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>css</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-css">*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; font-family: system-ui, sans-serif; }
+img, svg, video { max-width: 100%; height: auto; }
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>System Theme Variables</h3>
+          <div class="cheat-card__meta">
+            
+              <code>css</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-css">:root {
   color-scheme: light dark;
   --bg: #fff;
   --fg: #111;
@@ -84,6 +130,7 @@
   }
 }
 </code></pre>
+          
         </div>
       </article>
     

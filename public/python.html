@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,17 +66,80 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Virtualenv + run</h3>
+          <h3>Python documentation</h3>
           <div class="cheat-card__meta">
-            <code>bash</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-bash">python -m venv .venv
+          
+            <p class="doc-desc">Official Python docs (tutorial + standard library reference).</p>
+            <p class="doc-link">
+              <a href="https://docs.python.org/3/" target="_blank" rel="noreferrer">https://docs.python.org/3/</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Quickstart (venv + run)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">python -m venv .venv
+source .venv/bin/activate
+python -c &#39;print(&quot;hello&quot;)&#39;
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (requirements.txt)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>text</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-text"># requirements.txt
+requests==2.*
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Virtualenv + run</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">python -m venv .venv
 source .venv/bin/activate
 python main.py
 </code></pre>
+          
         </div>
       </article>
     
@@ -82,18 +147,22 @@ python main.py
         <header class="cheat-card__header">
           <h3>Dataclass</h3>
           <div class="cheat-card__meta">
-            <code>python</code>
+            
+              <code>python</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-python">from dataclasses import dataclass
+          
+            <pre><code class="language-python">from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class User:
     id: str
     email: str
 </code></pre>
+          
         </div>
       </article>
     
@@ -101,12 +170,15 @@ class User:
         <header class="cheat-card__header">
           <h3>Typing + async</h3>
           <div class="cheat-card__meta">
-            <code>python</code>
+            
+              <code>python</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-python">from typing import Any
+          
+            <pre><code class="language-python">from typing import Any
 
 async def fetch_json(url: str) -&gt; dict[str, Any]:
     import aiohttp
@@ -115,6 +187,141 @@ async def fetch_json(url: str) -&gt; dict[str, Any]:
             r.raise_for_status()
             return await r.json()
 </code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Variables + basic types</h3>
+          <div class="cheat-card__meta">
+            
+              <code>python</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-python">name = &quot;Sam&quot;   # str
+n = 123          # int
+pi = 3.14        # float
+ok = True        # bool
+nothing = None   # NoneType
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Datatypes (list, tuple, dict, set)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>python</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-python">xs = [1, 2, 3]           # list
+pair = (&quot;a&quot;, 1)          # tuple
+m = {&quot;a&quot;: 1, &quot;b&quot;: 2}     # dict
+s = {1, 2, 3}            # set
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Iteration (for, enumerate, dict items)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>python</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-python">xs = [&quot;a&quot;, &quot;b&quot;]
+for i, x in enumerate(xs):
+    print(i, x)
+
+m = {&quot;a&quot;: 1}
+for k, v in m.items():
+    print(k, v)
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Comprehensions</h3>
+          <div class="cheat-card__meta">
+            
+              <code>python</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-python">xs = [1, 2, 3]
+ys = [x * 2 for x in xs]
+ss = {x for x in xs if x % 2 == 1}
+mm = {x: x * 10 for x in xs}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Functions (defaults, *args, **kwargs)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>python</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-python">def greet(name: str, prefix: str = &quot;hi&quot;) -&gt; str:
+    return f&quot;{prefix} {name}&quot;
+
+def f(*args: int, **kwargs: str):
+    print(args, kwargs)
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Classes (init + property)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>python</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-python">class User:
+    def __init__(self, email: str):
+        self._email = email
+
+    @property
+    def email(self) -&gt; str:
+        return self._email
+</code></pre>
+          
         </div>
       </article>
     

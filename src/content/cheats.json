@@ -5,6 +5,17 @@
       "title": "HTML",
       "items": [
         {
+          "kind": "doc",
+          "title": "HTML documentation",
+          "description": "MDN is the best all-around reference for HTML elements, attributes, and browser behavior.",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        },
+        {
+          "title": "Quickstart (serve a folder)",
+          "lang": "bash",
+          "code": "cd public\npython -m http.server 8080\n# open http://localhost:8080\n"
+        },
+        {
           "title": "Minimal Document",
           "lang": "html",
           "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Page</title>\n  </head>\n  <body>\n    <h1>Hello</h1>\n  </body>\n</html>\n"
@@ -21,6 +32,17 @@
       "title": "CSS",
       "items": [
         {
+          "kind": "doc",
+          "title": "CSS documentation",
+          "description": "MDN CSS reference for properties, selectors, layout, and browser support notes.",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        },
+        {
+          "title": "Project setup (CSS reset-ish)",
+          "lang": "css",
+          "code": "*, *::before, *::after { box-sizing: border-box; }\nhtml, body { height: 100%; }\nbody { margin: 0; font-family: system-ui, sans-serif; }\nimg, svg, video { max-width: 100%; height: auto; }\n"
+        },
+        {
           "title": "System Theme Variables",
           "lang": "css",
           "code": ":root {\n  color-scheme: light dark;\n  --bg: #fff;\n  --fg: #111;\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n    --bg: #0b0d10;\n    --fg: #e6e6e6;\n  }\n}\n"
@@ -32,6 +54,22 @@
       "title": "JavaScript",
       "items": [
         {
+          "kind": "doc",
+          "title": "JavaScript documentation",
+          "description": "MDN JavaScript guide + reference (syntax, built-ins, browser APIs).",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+        },
+        {
+          "title": "Quickstart (Node project)",
+          "lang": "bash",
+          "code": "mkdir my-js && cd my-js\nnpm init -y\nnode -e 'console.log(\"hello\")'\n"
+        },
+        {
+          "title": "Project setup (ESM + scripts)",
+          "lang": "json",
+          "code": "{\n  \"type\": \"module\",\n  \"scripts\": {\n    \"dev\": \"node index.js\"\n  }\n}\n"
+        },
+        {
           "title": "Fetch + JSON",
           "lang": "javascript",
           "code": "const res = await fetch(\"/api/data\");\nif (!res.ok) throw new Error(`HTTP ${res.status}`);\nconst data = await res.json();\n"
@@ -40,6 +78,36 @@
           "title": "DOM query + event",
           "lang": "javascript",
           "code": "const btn = document.querySelector(\"button#save\");\nbtn?.addEventListener(\"click\", () => {\n  console.log(\"save\");\n});\n"
+        },
+        {
+          "title": "Variables (var/let/const)",
+          "lang": "javascript",
+          "code": "var legacy = 1; // function-scoped\nlet n = 0;       // block-scoped (mutable)\nconst name = \"Sam\"; // block-scoped (binding is immutable)\n"
+        },
+        {
+          "title": "Datatypes (primitive + object)",
+          "lang": "javascript",
+          "code": "const s = \"str\";\nconst i = 123;\nconst b = true;\nconst n = null;\nconst u = undefined;\nconst sym = Symbol(\"id\");\nconst big = 123n;\n\nconst obj = { a: 1 };\nconst arr = [1, 2, 3];\n"
+        },
+        {
+          "title": "Iteration (for/of, for/in, map/filter)",
+          "lang": "javascript",
+          "code": "const xs = [1, 2, 3];\n\nfor (const x of xs) console.log(x); // values\nfor (const k in { a: 1, b: 2 }) console.log(k); // keys\n\nconst doubled = xs.map((x) => x * 2);\nconst evens = xs.filter((x) => x % 2 === 0);\n"
+        },
+        {
+          "title": "Functions (declaration, arrow, default args)",
+          "lang": "javascript",
+          "code": "function add(a, b = 0) {\n  return a + b;\n}\n\nconst mul = (a, b) => a * b;\n"
+        },
+        {
+          "title": "Classes (constructor + method)",
+          "lang": "javascript",
+          "code": "class User {\n  constructor(id, email) {\n    this.id = id;\n    this.email = email;\n  }\n  toString() {\n    return `${this.id}:${this.email}`;\n  }\n}\n"
+        },
+        {
+          "title": "Async/Await (try/catch)",
+          "lang": "javascript",
+          "code": "async function getJSON(url) {\n  try {\n    const r = await fetch(url);\n    if (!r.ok) throw new Error(`HTTP ${r.status}`);\n    return await r.json();\n  } catch (err) {\n    console.error(err);\n    throw err;\n  }\n}\n"
         }
       ]
     },
@@ -47,6 +115,22 @@
       "id": "ts",
       "title": "TypeScript",
       "items": [
+        {
+          "kind": "doc",
+          "title": "TypeScript documentation",
+          "description": "Official TypeScript handbook (types, narrowing, generics, config).",
+          "url": "https://www.typescriptlang.org/docs/"
+        },
+        {
+          "title": "Quickstart (init + run)",
+          "lang": "bash",
+          "code": "mkdir my-ts && cd my-ts\nnpm init -y\nnpm i -D typescript tsx\nnpx tsc --init\nprintf 'console.log(\"hi\")\\n' > index.ts\nnpx tsx index.ts\n"
+        },
+        {
+          "title": "Project setup (tsconfig basics)",
+          "lang": "json",
+          "code": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"module\": \"ESNext\",\n    \"moduleResolution\": \"Bundler\",\n    \"strict\": true,\n    \"skipLibCheck\": true\n  }\n}\n"
+        },
         {
           "title": "Type + function",
           "lang": "typescript",
@@ -56,6 +140,36 @@
           "title": "Narrowing",
           "lang": "typescript",
           "code": "function isError(x: unknown): x is Error {\n  return x instanceof Error;\n}\n"
+        },
+        {
+          "title": "Variables (type annotations)",
+          "lang": "typescript",
+          "code": "let n: number = 1;\nconst ok: boolean = true;\nconst tags: string[] = [\"a\", \"b\"];\nconst rec: Record<string, number> = { a: 1 };\n"
+        },
+        {
+          "title": "Datatypes (union + literal + enum)",
+          "lang": "typescript",
+          "code": "type Status = \"idle\" | \"loading\" | \"error\";\n\nenum Role {\n  Admin = \"admin\",\n  User = \"user\",\n}\n"
+        },
+        {
+          "title": "Iteration (arrays + maps)",
+          "lang": "typescript",
+          "code": "const xs: number[] = [1, 2, 3];\nfor (const x of xs) console.log(x);\n\nconst m = new Map<string, number>([[\"a\", 1]]);\nfor (const [k, v] of m) console.log(k, v);\n"
+        },
+        {
+          "title": "Functions (generics)",
+          "lang": "typescript",
+          "code": "function first<T>(xs: T[]): T | undefined {\n  return xs[0];\n}\n"
+        },
+        {
+          "title": "Interfaces + classes",
+          "lang": "typescript",
+          "code": "interface Logger {\n  log(msg: string): void;\n}\n\nclass ConsoleLogger implements Logger {\n  log(msg: string) {\n    console.log(msg);\n  }\n}\n"
+        },
+        {
+          "title": "Optional chaining + nullish coalescing",
+          "lang": "typescript",
+          "code": "type User = { profile?: { name?: string } };\nconst u: User = {};\nconst name = u.profile?.name ?? \"Anonymous\";\n"
         }
       ]
     },
@@ -63,6 +177,22 @@
       "id": "python",
       "title": "Python",
       "items": [
+        {
+          "kind": "doc",
+          "title": "Python documentation",
+          "description": "Official Python docs (tutorial + standard library reference).",
+          "url": "https://docs.python.org/3/"
+        },
+        {
+          "title": "Quickstart (venv + run)",
+          "lang": "bash",
+          "code": "python -m venv .venv\nsource .venv/bin/activate\npython -c 'print(\"hello\")'\n"
+        },
+        {
+          "title": "Project setup (requirements.txt)",
+          "lang": "text",
+          "code": "# requirements.txt\nrequests==2.*\n"
+        },
         {
           "title": "Virtualenv + run",
           "lang": "bash",
@@ -77,6 +207,36 @@
           "title": "Typing + async",
           "lang": "python",
           "code": "from typing import Any\n\nasync def fetch_json(url: str) -> dict[str, Any]:\n    import aiohttp\n    async with aiohttp.ClientSession() as s:\n        async with s.get(url) as r:\n            r.raise_for_status()\n            return await r.json()\n"
+        },
+        {
+          "title": "Variables + basic types",
+          "lang": "python",
+          "code": "name = \"Sam\"   # str\nn = 123          # int\npi = 3.14        # float\nok = True        # bool\nnothing = None   # NoneType\n"
+        },
+        {
+          "title": "Datatypes (list, tuple, dict, set)",
+          "lang": "python",
+          "code": "xs = [1, 2, 3]           # list\npair = (\"a\", 1)          # tuple\nm = {\"a\": 1, \"b\": 2}     # dict\ns = {1, 2, 3}            # set\n"
+        },
+        {
+          "title": "Iteration (for, enumerate, dict items)",
+          "lang": "python",
+          "code": "xs = [\"a\", \"b\"]\nfor i, x in enumerate(xs):\n    print(i, x)\n\nm = {\"a\": 1}\nfor k, v in m.items():\n    print(k, v)\n"
+        },
+        {
+          "title": "Comprehensions",
+          "lang": "python",
+          "code": "xs = [1, 2, 3]\nys = [x * 2 for x in xs]\nss = {x for x in xs if x % 2 == 1}\nmm = {x: x * 10 for x in xs}\n"
+        },
+        {
+          "title": "Functions (defaults, *args, **kwargs)",
+          "lang": "python",
+          "code": "def greet(name: str, prefix: str = \"hi\") -> str:\n    return f\"{prefix} {name}\"\n\ndef f(*args: int, **kwargs: str):\n    print(args, kwargs)\n"
+        },
+        {
+          "title": "Classes (init + property)",
+          "lang": "python",
+          "code": "class User:\n    def __init__(self, email: str):\n        self._email = email\n\n    @property\n    def email(self) -> str:\n        return self._email\n"
         }
       ]
     },
@@ -84,6 +244,22 @@
       "id": "go",
       "title": "Golang",
       "items": [
+        {
+          "kind": "doc",
+          "title": "Go documentation",
+          "description": "The official Go site has the tour, package docs, and language spec.",
+          "url": "https://go.dev/doc/"
+        },
+        {
+          "title": "Quickstart (module + run)",
+          "lang": "bash",
+          "code": "mkdir my-go && cd my-go\ngo mod init example.com/my-go\ncat > main.go <<'EOF'\npackage main\n\nimport \"fmt\"\n\nfunc main() { fmt.Println(\"hello\") }\nEOF\n\ngo run .\n"
+        },
+        {
+          "title": "Project setup (common layout)",
+          "lang": "text",
+          "code": "cmd/      # main packages\ninternal/ # private packages\npkg/      # shared libraries (optional)\n"
+        },
         {
           "title": "Basic types + function",
           "lang": "go",
@@ -93,6 +269,36 @@
           "title": "Error wrapping",
           "lang": "go",
           "code": "if err != nil {\n\treturn fmt.Errorf(\"open config: %w\", err)\n}\n"
+        },
+        {
+          "title": "Variables (var, :=, const)",
+          "lang": "go",
+          "code": "var a int = 1\nb := \"hi\" // inferred\nconst pi = 3.14159\n"
+        },
+        {
+          "title": "Datatypes (slice, map)",
+          "lang": "go",
+          "code": "xs := []int{1, 2, 3}\nm := map[string]int{\"a\": 1}\nxs = append(xs, 4)\n"
+        },
+        {
+          "title": "Iteration (for forms)",
+          "lang": "go",
+          "code": "for i := 0; i < 3; i++ {\n\t// ...\n}\n\nfor i, x := range []string{\"a\", \"b\"} {\n\t_ = i\n\t_ = x\n}\n"
+        },
+        {
+          "title": "Functions (multiple returns)",
+          "lang": "go",
+          "code": "func div(a, b int) (int, error) {\n\tif b == 0 {\n\t\treturn 0, fmt.Errorf(\"divide by zero\")\n\t}\n\treturn a / b, nil\n}\n"
+        },
+        {
+          "title": "Methods (receiver)",
+          "lang": "go",
+          "code": "type Counter struct{ N int }\n\nfunc (c *Counter) Inc() { c.N++ }\n"
+        },
+        {
+          "title": "Interfaces (implicit)",
+          "lang": "go",
+          "code": "type Stringer interface {\n\tString() string\n}\n\ntype User struct{ Email string }\nfunc (u User) String() string { return u.Email }\n"
         }
       ]
     },
@@ -100,6 +306,22 @@
       "id": "c",
       "title": "C",
       "items": [
+        {
+          "kind": "doc",
+          "title": "C documentation",
+          "description": "cppreference is a practical, searchable C reference (C11/C17).",
+          "url": "https://en.cppreference.com/w/c"
+        },
+        {
+          "title": "Quickstart (compile + run)",
+          "lang": "bash",
+          "code": "cat > main.c <<'EOF'\n#include <stdio.h>\nint main(void){ puts(\"hello\"); }\nEOF\n\ncc -std=c11 -Wall -Wextra -O2 main.c -o app\n./app\n"
+        },
+        {
+          "title": "Project setup (Makefile)",
+          "lang": "makefile",
+          "code": "CC=cc\nCFLAGS=-std=c11 -Wall -Wextra -O2\n\nall: app\napp: main.c\n\t$(CC) $(CFLAGS) main.c -o app\nclean:\n\trm -f app\n"
+        },
         {
           "title": "Hello + argc/argv",
           "lang": "c",
@@ -109,6 +331,31 @@
           "title": "Struct + pointer",
           "lang": "c",
           "code": "typedef struct {\n  int x;\n  int y;\n} Point;\n\nvoid move(Point *p, int dx, int dy) {\n  p->x += dx;\n  p->y += dy;\n}\n"
+        },
+        {
+          "title": "Variables + basic types",
+          "lang": "c",
+          "code": "int i = 1;\ndouble d = 3.14;\nchar c = 'A';\nconst char *s = \"hi\";\n"
+        },
+        {
+          "title": "Arrays",
+          "lang": "c",
+          "code": "int xs[3] = {1, 2, 3};\nsize_t n = sizeof(xs) / sizeof(xs[0]);\n"
+        },
+        {
+          "title": "Iteration (for/while)",
+          "lang": "c",
+          "code": "for (int i = 0; i < 3; i++) {\n  // ...\n}\n\nint j = 0;\nwhile (j < 3) {\n  j++;\n}\n"
+        },
+        {
+          "title": "Functions (prototype + definition)",
+          "lang": "c",
+          "code": "int add(int a, int b);\n\nint add(int a, int b) {\n  return a + b;\n}\n"
+        },
+        {
+          "title": "Pointers (address, dereference)",
+          "lang": "c",
+          "code": "int x = 10;\nint *p = &x;\n*p = 11;\n"
         }
       ]
     },
@@ -116,6 +363,22 @@
       "id": "cpp",
       "title": "C++",
       "items": [
+        {
+          "kind": "doc",
+          "title": "C++ documentation",
+          "description": "cppreference is the best quick reference for modern C++ (STL, language features).",
+          "url": "https://en.cppreference.com/w/cpp"
+        },
+        {
+          "title": "Quickstart (compile + run)",
+          "lang": "bash",
+          "code": "cat > main.cpp <<'EOF'\n#include <iostream>\nint main(){ std::cout << \"hello\\n\"; }\nEOF\n\nc++ -std=c++20 -Wall -Wextra -O2 main.cpp -o app\n./app\n"
+        },
+        {
+          "title": "Project setup (CMake minimal)",
+          "lang": "cmake",
+          "code": "cmake_minimum_required(VERSION 3.20)\nproject(app LANGUAGES CXX)\nset(CMAKE_CXX_STANDARD 20)\nadd_executable(app main.cpp)\n"
+        },
         {
           "title": "RAII + vector",
           "lang": "cpp",
@@ -125,6 +388,26 @@
           "title": "Unique ptr",
           "lang": "cpp",
           "code": "#include <memory>\n\nauto p = std::make_unique<int>(42);\n"
+        },
+        {
+          "title": "Variables + auto + const",
+          "lang": "cpp",
+          "code": "int i = 1;\nauto n = 123;        // deduced\nconst double pi = 3.14;\n"
+        },
+        {
+          "title": "Iteration (range-for)",
+          "lang": "cpp",
+          "code": "#include <vector>\n\nstd::vector<int> xs{1, 2, 3};\nfor (const auto &x : xs) {\n  // ...\n}\n"
+        },
+        {
+          "title": "Functions (overload)",
+          "lang": "cpp",
+          "code": "int add(int a, int b) { return a + b; }\ndouble add(double a, double b) { return a + b; }\n"
+        },
+        {
+          "title": "Classes (constructor + method)",
+          "lang": "cpp",
+          "code": "#include <string>\n\nclass User {\n public:\n  User(std::string email) : email_(std::move(email)) {}\n  const std::string& email() const { return email_; }\n\n private:\n  std::string email_;\n};\n"
         }
       ]
     },
@@ -132,6 +415,22 @@
       "id": "lua",
       "title": "Lua",
       "items": [
+        {
+          "kind": "doc",
+          "title": "Lua documentation",
+          "description": "The official Lua manual is short and very readable (syntax, standard library).",
+          "url": "https://www.lua.org/manual/5.4/"
+        },
+        {
+          "title": "Quickstart (run a script)",
+          "lang": "bash",
+          "code": "cat > main.lua <<'EOF'\nprint(\"hello\")\nEOF\n\nlua main.lua\n"
+        },
+        {
+          "title": "Project setup (LuaRocks)",
+          "lang": "bash",
+          "code": "luarocks init --lua-version=5.4\n# edit rockspec as needed\n"
+        },
         {
           "title": "Tables",
           "lang": "lua",
@@ -141,6 +440,26 @@
           "title": "Functions",
           "lang": "lua",
           "code": "local function add(a, b)\n  return a + b\nend\n"
+        },
+        {
+          "title": "Variables + basic types",
+          "lang": "lua",
+          "code": "local s = \"str\"\nlocal n = 123\nlocal ok = true\nlocal nothing = nil\n"
+        },
+        {
+          "title": "Iteration (numeric for, ipairs, pairs)",
+          "lang": "lua",
+          "code": "for i = 1, 3 do\n  print(i)\nend\n\nlocal xs = { \"a\", \"b\" }\nfor i, v in ipairs(xs) do\n  print(i, v)\nend\n\nlocal m = { a = 1, b = 2 }\nfor k, v in pairs(m) do\n  print(k, v)\nend\n"
+        },
+        {
+          "title": "Tables as maps + arrays",
+          "lang": "lua",
+          "code": "local arr = { 10, 20, 30 }\nlocal map = { a = 1, b = 2 }\n"
+        },
+        {
+          "title": "Simple \"class\" pattern (tables + metatable)",
+          "lang": "lua",
+          "code": "local User = {}\nUser.__index = User\n\nfunction User.new(email)\n  return setmetatable({ email = email }, User)\nend\n\nfunction User:to_string()\n  return self.email\nend\n\nlocal u = User.new(\"a@b.com\")\nprint(u:to_string())\n"
         }
       ]
     },
@@ -148,6 +467,22 @@
       "id": "react",
       "title": "React",
       "items": [
+        {
+          "kind": "doc",
+          "title": "React documentation",
+          "description": "Official React docs (components, hooks, rendering, patterns).",
+          "url": "https://react.dev/"
+        },
+        {
+          "title": "Quickstart (Vite React + TS)",
+          "lang": "bash",
+          "code": "npm create vite@latest my-app -- --template react-ts\ncd my-app\nnpm install\nnpm run dev\n"
+        },
+        {
+          "title": "Project setup (component file)",
+          "lang": "tsx",
+          "code": "export function App() {\n  return <main>Hello</main>;\n}\n"
+        },
         {
           "title": "Component (TSX)",
           "lang": "tsx",
@@ -157,6 +492,21 @@
           "title": "useEffect pattern",
           "lang": "tsx",
           "code": "import { useEffect, useState } from \"react\";\n\nexport function Clock() {\n  const [t, setT] = useState(() => Date.now());\n  useEffect(() => {\n    const id = setInterval(() => setT(Date.now()), 1000);\n    return () => clearInterval(id);\n  }, []);\n  return <time>{new Date(t).toLocaleTimeString()}</time>;\n}\n"
+        },
+        {
+          "title": "State (useState)",
+          "lang": "tsx",
+          "code": "import { useState } from \"react\";\n\nexport function Counter() {\n  const [n, setN] = useState(0);\n  return <button onClick={() => setN((x) => x + 1)}>{n}</button>;\n}\n"
+        },
+        {
+          "title": "Iteration (render list)",
+          "lang": "tsx",
+          "code": "type Item = { id: string; name: string };\n\nexport function List({ items }: { items: Item[] }) {\n  return (\n    <ul>\n      {items.map((it) => (\n        <li key={it.id}>{it.name}</li>\n      ))}\n    </ul>\n  );\n}\n"
+        },
+        {
+          "title": "Derived values (useMemo)",
+          "lang": "tsx",
+          "code": "import { useMemo } from \"react\";\n\nexport function Total({ xs }: { xs: number[] }) {\n  const sum = useMemo(() => xs.reduce((a, b) => a + b, 0), [xs]);\n  return <output>{sum}</output>;\n}\n"
         }
       ]
     },
@@ -165,9 +515,35 @@
       "title": "Solid",
       "items": [
         {
+          "kind": "doc",
+          "title": "Solid documentation",
+          "description": "Solid’s docs cover signals, fine-grained reactivity, and component patterns.",
+          "url": "https://www.solidjs.com/docs/latest"
+        },
+        {
+          "title": "Quickstart (create Solid app)",
+          "lang": "bash",
+          "code": "npm create solid@latest my-solid\ncd my-solid\nnpm install\nnpm run dev\n"
+        },
+        {
+          "title": "Project setup (signal basics)",
+          "lang": "tsx",
+          "code": "import { createSignal } from \"solid-js\";\n\nconst [n, setN] = createSignal(0);\nsetN(n() + 1);\n"
+        },
+        {
           "title": "Signal + component (TSX)",
           "lang": "tsx",
           "code": "import { createSignal } from \"solid-js\";\n\nexport function Counter() {\n  const [n, setN] = createSignal(0);\n  return <button onClick={() => setN(n() + 1)}>{n()}</button>;\n}\n"
+        },
+        {
+          "title": "Iteration (<For>)",
+          "lang": "tsx",
+          "code": "import { For } from \"solid-js\";\n\ntype Item = { id: string; name: string };\n\nexport function List(props: { items: Item[] }) {\n  return (\n    <ul>\n      <For each={props.items}>{(it) => <li>{it.name}</li>}</For>\n    </ul>\n  );\n}\n"
+        },
+        {
+          "title": "Effects (createEffect)",
+          "lang": "tsx",
+          "code": "import { createEffect, createSignal } from \"solid-js\";\n\nconst [n, setN] = createSignal(0);\ncreateEffect(() => {\n  console.log(\"n:\", n());\n});\n"
         }
       ]
     },
@@ -176,9 +552,35 @@
       "title": "Vue",
       "items": [
         {
+          "kind": "doc",
+          "title": "Vue documentation",
+          "description": "Official Vue docs (SFCs, reactivity, directives, composition API).",
+          "url": "https://vuejs.org/guide/"
+        },
+        {
+          "title": "Quickstart (create-vue)",
+          "lang": "bash",
+          "code": "npm create vue@latest my-vue\ncd my-vue\nnpm install\nnpm run dev\n"
+        },
+        {
+          "title": "Project setup (SFC structure)",
+          "lang": "html",
+          "code": "<script setup>\n// state + logic\n</script>\n\n<template>\n  <!-- UI -->\n</template>\n\n<style scoped>\n/* styles */\n</style>\n"
+        },
+        {
           "title": "SFC (script setup)",
           "lang": "html",
           "code": "<script setup lang=\"ts\">\nimport { ref } from \"vue\";\nconst n = ref(0);\n</script>\n\n<template>\n  <button @click=\"n++\">{{ n }}</button>\n</template>\n"
+        },
+        {
+          "title": "Iteration (v-for)",
+          "lang": "html",
+          "code": "<script setup lang=\"ts\">\nconst items = [\n  { id: \"1\", name: \"A\" },\n  { id: \"2\", name: \"B\" },\n];\n</script>\n\n<template>\n  <ul>\n    <li v-for=\"it in items\" :key=\"it.id\">{{ it.name }}</li>\n  </ul>\n</template>\n"
+        },
+        {
+          "title": "Computed",
+          "lang": "html",
+          "code": "<script setup lang=\"ts\">\nimport { computed, ref } from \"vue\";\nconst xs = ref([1, 2, 3]);\nconst sum = computed(() => xs.value.reduce((a, b) => a + b, 0));\n</script>\n\n<template>\n  <output>{{ sum }}</output>\n</template>\n"
         }
       ]
     },
@@ -187,9 +589,35 @@
       "title": "Angular",
       "items": [
         {
+          "kind": "doc",
+          "title": "Angular documentation",
+          "description": "Official Angular docs (components, templates, DI, routing).",
+          "url": "https://angular.dev/"
+        },
+        {
+          "title": "Quickstart (Angular CLI)",
+          "lang": "bash",
+          "code": "npm i -g @angular/cli\nng new my-app\ncd my-app\nng serve\n"
+        },
+        {
+          "title": "Project setup (standalone mindset)",
+          "lang": "text",
+          "code": "Prefer standalone components + route-based composition.\nKeep shared UI in libs/ or a shared folder.\n"
+        },
+        {
           "title": "Standalone component",
           "lang": "typescript",
           "code": "import { Component } from \"@angular/core\";\n\n@Component({\n  standalone: true,\n  selector: \"app-hello\",\n  template: `<h1>{{ title }}</h1>`,\n})\nexport class HelloComponent {\n  title = \"Hello\";\n}\n"
+        },
+        {
+          "title": "Iteration (*ngFor)",
+          "lang": "typescript",
+          "code": "import { Component } from \"@angular/core\";\n\n@Component({\n  standalone: true,\n  selector: \"app-list\",\n  template: `<ul><li *ngFor=\"let x of xs\">{{ x }}</li></ul>`,\n})\nexport class ListComponent {\n  xs = [\"a\", \"b\", \"c\"];\n}\n"
+        },
+        {
+          "title": "Inputs",
+          "lang": "typescript",
+          "code": "import { Component, Input } from \"@angular/core\";\n\n@Component({\n  standalone: true,\n  selector: \"app-title\",\n  template: `<h1>{{ title }}</h1>`,\n})\nexport class TitleComponent {\n  @Input() title = \"\";\n}\n"
         }
       ]
     },
@@ -198,9 +626,82 @@
       "title": "RxJS",
       "items": [
         {
+          "kind": "doc",
+          "title": "RxJS documentation",
+          "description": "Official RxJS docs for Observables, operators, schedulers, and patterns.",
+          "url": "https://rxjs.dev/"
+        },
+        {
+          "title": "Quickstart (install)",
+          "lang": "bash",
+          "code": "npm i rxjs\n"
+        },
+        {
+          "title": "Project setup (ESM import)",
+          "lang": "typescript",
+          "code": "import { of } from \"rxjs\";\n\nof(1, 2, 3).subscribe(console.log);\n"
+        },
+        {
           "title": "pipe + operators",
           "lang": "typescript",
           "code": "import { fromEvent, map, filter, debounceTime } from \"rxjs\";\n\nconst clicks$ = fromEvent<MouseEvent>(document, \"click\").pipe(\n  debounceTime(250),\n  map((e) => ({ x: e.clientX, y: e.clientY })),\n  filter((p) => p.x > 0)\n);\n\nclicks$.subscribe(console.log);\n"
+        },
+        {
+          "title": "Subjects (push values)",
+          "lang": "typescript",
+          "code": "import { Subject } from \"rxjs\";\n\nconst s = new Subject<number>();\nconst sub = s.subscribe((v) => console.log(v));\n\ns.next(1);\ns.next(2);\nsub.unsubscribe();\n"
+        },
+        {
+          "title": "HTTP-like (switchMap + catchError)",
+          "lang": "typescript",
+          "code": "import { fromEvent, from, of } from \"rxjs\";\nimport { switchMap, catchError } from \"rxjs/operators\";\n\nconst btn = document.querySelector(\"button#load\")!;\n\nfromEvent(btn, \"click\")\n  .pipe(\n    switchMap(() =>\n      from(fetch(\"/api/data\").then((r) => r.json())).pipe(\n        catchError((err) => of({ error: String(err) }))\n      )\n    )\n  )\n  .subscribe(console.log);\n"
+        }
+      ]
+    },
+    {
+      "id": "dart",
+      "title": "Dart",
+      "items": [
+        {
+          "kind": "doc",
+          "title": "Dart documentation",
+          "description": "Official Dart docs (language tour, core libraries, tooling).",
+          "url": "https://dart.dev/guides"
+        },
+        {
+          "title": "Quickstart (create + run)",
+          "lang": "bash",
+          "code": "dart create my_app\ncd my_app\ndart run\n"
+        },
+        {
+          "title": "Project setup (pub add deps)",
+          "lang": "bash",
+          "code": "dart pub add http\n# edits pubspec.yaml\n"
+        },
+        {
+          "title": "Variables (var/final/const)",
+          "lang": "dart",
+          "code": "var n = 1;         // inferred, mutable\nfinal name = \"Sam\"; // runtime constant, immutable\nconst pi = 3.14159; // compile-time constant\n"
+        },
+        {
+          "title": "Datatypes (List/Map/Set)",
+          "lang": "dart",
+          "code": "final xs = <int>[1, 2, 3];\nfinal m = <String, int>{\"a\": 1};\nfinal s = <String>{\"a\", \"b\"};\n"
+        },
+        {
+          "title": "Iteration (for, for-in, where/map)",
+          "lang": "dart",
+          "code": "final xs = [1, 2, 3];\n\nfor (var i = 0; i < xs.length; i++) {\n  print(xs[i]);\n}\n\nfor (final x in xs) {\n  print(x);\n}\n\nfinal evens = xs.where((x) => x.isEven).toList();\nfinal doubled = xs.map((x) => x * 2).toList();\n"
+        },
+        {
+          "title": "Functions (named + optional args)",
+          "lang": "dart",
+          "code": "int add(int a, int b) => a + b;\n\nString greet(String name, {String prefix = \"hi\"}) {\n  return \"$prefix $name\";\n}\n"
+        },
+        {
+          "title": "Classes (constructor + field)",
+          "lang": "dart",
+          "code": "class User {\n  final String email;\n  User(this.email);\n}\n"
         }
       ]
     }

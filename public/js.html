@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,17 +66,84 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Fetch + JSON</h3>
+          <h3>JavaScript documentation</h3>
           <div class="cheat-card__meta">
-            <code>javascript</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-javascript">const res = await fetch(&quot;/api/data&quot;);
+          
+            <p class="doc-desc">MDN JavaScript guide + reference (syntax, built-ins, browser APIs).</p>
+            <p class="doc-link">
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer">https://developer.mozilla.org/en-US/docs/Web/JavaScript</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Quickstart (Node project)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">mkdir my-js &amp;&amp; cd my-js
+npm init -y
+node -e &#39;console.log(&quot;hello&quot;)&#39;
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (ESM + scripts)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>json</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-json">{
+  &quot;type&quot;: &quot;module&quot;,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;node index.js&quot;
+  }
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Fetch + JSON</h3>
+          <div class="cheat-card__meta">
+            
+              <code>javascript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-javascript">const res = await fetch(&quot;/api/data&quot;);
 if (!res.ok) throw new Error(`HTTP ${res.status}`);
 const data = await res.json();
 </code></pre>
+          
         </div>
       </article>
     
@@ -82,16 +151,166 @@ const data = await res.json();
         <header class="cheat-card__header">
           <h3>DOM query + event</h3>
           <div class="cheat-card__meta">
-            <code>javascript</code>
+            
+              <code>javascript</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-javascript">const btn = document.querySelector(&quot;button#save&quot;);
+          
+            <pre><code class="language-javascript">const btn = document.querySelector(&quot;button#save&quot;);
 btn?.addEventListener(&quot;click&quot;, () =&gt; {
   console.log(&quot;save&quot;);
 });
 </code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Variables (var/let/const)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>javascript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-javascript">var legacy = 1; // function-scoped
+let n = 0;       // block-scoped (mutable)
+const name = &quot;Sam&quot;; // block-scoped (binding is immutable)
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Datatypes (primitive + object)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>javascript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-javascript">const s = &quot;str&quot;;
+const i = 123;
+const b = true;
+const n = null;
+const u = undefined;
+const sym = Symbol(&quot;id&quot;);
+const big = 123n;
+
+const obj = { a: 1 };
+const arr = [1, 2, 3];
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Iteration (for/of, for/in, map/filter)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>javascript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-javascript">const xs = [1, 2, 3];
+
+for (const x of xs) console.log(x); // values
+for (const k in { a: 1, b: 2 }) console.log(k); // keys
+
+const doubled = xs.map((x) =&gt; x * 2);
+const evens = xs.filter((x) =&gt; x % 2 === 0);
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Functions (declaration, arrow, default args)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>javascript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-javascript">function add(a, b = 0) {
+  return a + b;
+}
+
+const mul = (a, b) =&gt; a * b;
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Classes (constructor + method)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>javascript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-javascript">class User {
+  constructor(id, email) {
+    this.id = id;
+    this.email = email;
+  }
+  toString() {
+    return `${this.id}:${this.email}`;
+  }
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Async/Await (try/catch)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>javascript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-javascript">async function getJSON(url) {
+  try {
+    const r = await fetch(url);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return await r.json();
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+}
+</code></pre>
+          
         </div>
       </article>
     

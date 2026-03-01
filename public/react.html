@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,19 +66,84 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Component (TSX)</h3>
+          <h3>React documentation</h3>
           <div class="cheat-card__meta">
-            <code>tsx</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-tsx">type Props = { title: string };
+          
+            <p class="doc-desc">Official React docs (components, hooks, rendering, patterns).</p>
+            <p class="doc-link">
+              <a href="https://react.dev/" target="_blank" rel="noreferrer">https://react.dev/</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Quickstart (Vite React + TS)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">npm create vite@latest my-app -- --template react-ts
+cd my-app
+npm install
+npm run dev
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (component file)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>tsx</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-tsx">export function App() {
+  return &lt;main&gt;Hello&lt;/main&gt;;
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Component (TSX)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>tsx</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-tsx">type Props = { title: string };
 
 export function Header({ title }: Props) {
   return &lt;header&gt;&lt;h1&gt;{title}&lt;/h1&gt;&lt;/header&gt;;
 }
 </code></pre>
+          
         </div>
       </article>
     
@@ -84,12 +151,15 @@ export function Header({ title }: Props) {
         <header class="cheat-card__header">
           <h3>useEffect pattern</h3>
           <div class="cheat-card__meta">
-            <code>tsx</code>
+            
+              <code>tsx</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-tsx">import { useEffect, useState } from &quot;react&quot;;
+          
+            <pre><code class="language-tsx">import { useEffect, useState } from &quot;react&quot;;
 
 export function Clock() {
   const [t, setT] = useState(() =&gt; Date.now());
@@ -100,6 +170,81 @@ export function Clock() {
   return &lt;time&gt;{new Date(t).toLocaleTimeString()}&lt;/time&gt;;
 }
 </code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>State (useState)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>tsx</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-tsx">import { useState } from &quot;react&quot;;
+
+export function Counter() {
+  const [n, setN] = useState(0);
+  return &lt;button onClick={() =&gt; setN((x) =&gt; x + 1)}&gt;{n}&lt;/button&gt;;
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Iteration (render list)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>tsx</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-tsx">type Item = { id: string; name: string };
+
+export function List({ items }: { items: Item[] }) {
+  return (
+    &lt;ul&gt;
+      {items.map((it) =&gt; (
+        &lt;li key={it.id}&gt;{it.name}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Derived values (useMemo)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>tsx</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-tsx">import { useMemo } from &quot;react&quot;;
+
+export function Total({ xs }: { xs: number[] }) {
+  const sum = useMemo(() =&gt; xs.reduce((a, b) =&gt; a + b, 0), [xs]);
+  return &lt;output&gt;{sum}&lt;/output&gt;;
+}
+</code></pre>
+          
         </div>
       </article>
     

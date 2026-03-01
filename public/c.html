@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,14 +66,86 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Hello + argc/argv</h3>
+          <h3>C documentation</h3>
           <div class="cheat-card__meta">
-            <code>c</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-c">#include &lt;stdio.h&gt;
+          
+            <p class="doc-desc">cppreference is a practical, searchable C reference (C11/C17).</p>
+            <p class="doc-link">
+              <a href="https://en.cppreference.com/w/c" target="_blank" rel="noreferrer">https://en.cppreference.com/w/c</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Quickstart (compile + run)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">cat &gt; main.c &lt;&lt;&#39;EOF&#39;
+#include &lt;stdio.h&gt;
+int main(void){ puts(&quot;hello&quot;); }
+EOF
+
+cc -std=c11 -Wall -Wextra -O2 main.c -o app
+./app
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (Makefile)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>makefile</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-makefile">CC=cc
+CFLAGS=-std=c11 -Wall -Wextra -O2
+
+all: app
+app: main.c
+	$(CC) $(CFLAGS) main.c -o app
+clean:
+	rm -f app
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Hello + argc/argv</h3>
+          <div class="cheat-card__meta">
+            
+              <code>c</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-c">#include &lt;stdio.h&gt;
 
 int main(int argc, char **argv) {
   (void)argc;
@@ -80,6 +154,7 @@ int main(int argc, char **argv) {
   return 0;
 }
 </code></pre>
+          
         </div>
       </article>
     
@@ -87,12 +162,15 @@ int main(int argc, char **argv) {
         <header class="cheat-card__header">
           <h3>Struct + pointer</h3>
           <div class="cheat-card__meta">
-            <code>c</code>
+            
+              <code>c</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-c">typedef struct {
+          
+            <pre><code class="language-c">typedef struct {
   int x;
   int y;
 } Point;
@@ -102,6 +180,114 @@ void move(Point *p, int dx, int dy) {
   p-&gt;y += dy;
 }
 </code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Variables + basic types</h3>
+          <div class="cheat-card__meta">
+            
+              <code>c</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-c">int i = 1;
+double d = 3.14;
+char c = &#39;A&#39;;
+const char *s = &quot;hi&quot;;
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Arrays</h3>
+          <div class="cheat-card__meta">
+            
+              <code>c</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-c">int xs[3] = {1, 2, 3};
+size_t n = sizeof(xs) / sizeof(xs[0]);
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Iteration (for/while)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>c</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-c">for (int i = 0; i &lt; 3; i++) {
+  // ...
+}
+
+int j = 0;
+while (j &lt; 3) {
+  j++;
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Functions (prototype + definition)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>c</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-c">int add(int a, int b);
+
+int add(int a, int b) {
+  return a + b;
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Pointers (address, dereference)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>c</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-c">int x = 10;
+int *p = &amp;x;
+*p = 11;
+</code></pre>
+          
         </div>
       </article>
     

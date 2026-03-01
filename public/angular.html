@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,14 +66,77 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Standalone component</h3>
+          <h3>Angular documentation</h3>
           <div class="cheat-card__meta">
-            <code>typescript</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
+          
+            <p class="doc-desc">Official Angular docs (components, templates, DI, routing).</p>
+            <p class="doc-link">
+              <a href="https://angular.dev/" target="_blank" rel="noreferrer">https://angular.dev/</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Quickstart (Angular CLI)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">npm i -g @angular/cli
+ng new my-app
+cd my-app
+ng serve
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (standalone mindset)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>text</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-text">Prefer standalone components + route-based composition.
+Keep shared UI in libs/ or a shared folder.
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Standalone component</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
 
 @Component({
   standalone: true,
@@ -82,6 +147,61 @@ export class HelloComponent {
   title = &quot;Hello&quot;;
 }
 </code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Iteration (*ngFor)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
+
+@Component({
+  standalone: true,
+  selector: &quot;app-list&quot;,
+  template: `&lt;ul&gt;&lt;li *ngFor=&quot;let x of xs&quot;&gt;{{ x }}&lt;/li&gt;&lt;/ul&gt;`,
+})
+export class ListComponent {
+  xs = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Inputs</h3>
+          <div class="cheat-card__meta">
+            
+              <code>typescript</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-typescript">import { Component, Input } from &quot;@angular/core&quot;;
+
+@Component({
+  standalone: true,
+  selector: &quot;app-title&quot;,
+  template: `&lt;h1&gt;{{ title }}&lt;/h1&gt;`,
+})
+export class TitleComponent {
+  @Input() title = &quot;&quot;;
+}
+</code></pre>
+          
         </div>
       </article>
     

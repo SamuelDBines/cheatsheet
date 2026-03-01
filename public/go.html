@@ -51,6 +51,8 @@
           
             <a href="./rxjs.html">RxJS</a>
           
+            <a href="./dart.html">Dart</a>
+          
         </nav>
       </div>
     </header>
@@ -64,14 +66,85 @@
     
       <article class="cheat-card">
         <header class="cheat-card__header">
-          <h3>Basic types + function</h3>
+          <h3>Go documentation</h3>
           <div class="cheat-card__meta">
-            <code>go</code>
+            
+              <code>docs</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-go">package main
+          
+            <p class="doc-desc">The official Go site has the tour, package docs, and language spec.</p>
+            <p class="doc-link">
+              <a href="https://go.dev/doc/" target="_blank" rel="noreferrer">https://go.dev/doc/</a>
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Quickstart (module + run)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>bash</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-bash">mkdir my-go &amp;&amp; cd my-go
+go mod init example.com/my-go
+cat &gt; main.go &lt;&lt;&#39;EOF&#39;
+package main
+
+import &quot;fmt&quot;
+
+func main() { fmt.Println(&quot;hello&quot;) }
+EOF
+
+go run .
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Project setup (common layout)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>text</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-text">cmd/      # main packages
+internal/ # private packages
+pkg/      # shared libraries (optional)
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Basic types + function</h3>
+          <div class="cheat-card__meta">
+            
+              <code>go</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
 
@@ -85,6 +158,7 @@ func main() {
 	fmt.Println(u.Email)
 }
 </code></pre>
+          
         </div>
       </article>
     
@@ -92,15 +166,150 @@ func main() {
         <header class="cheat-card__header">
           <h3>Error wrapping</h3>
           <div class="cheat-card__meta">
-            <code>go</code>
+            
+              <code>go</code>
+            
           </div>
         </header>
 
         <div class="cheat-card__body">
-          <pre><code class="language-go">if err != nil {
+          
+            <pre><code class="language-go">if err != nil {
 	return fmt.Errorf(&quot;open config: %w&quot;, err)
 }
 </code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Variables (var, :=, const)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>go</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-go">var a int = 1
+b := &quot;hi&quot; // inferred
+const pi = 3.14159
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Datatypes (slice, map)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>go</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-go">xs := []int{1, 2, 3}
+m := map[string]int{&quot;a&quot;: 1}
+xs = append(xs, 4)
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Iteration (for forms)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>go</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-go">for i := 0; i &lt; 3; i++ {
+	// ...
+}
+
+for i, x := range []string{&quot;a&quot;, &quot;b&quot;} {
+	_ = i
+	_ = x
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Functions (multiple returns)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>go</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-go">func div(a, b int) (int, error) {
+	if b == 0 {
+		return 0, fmt.Errorf(&quot;divide by zero&quot;)
+	}
+	return a / b, nil
+}
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Methods (receiver)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>go</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-go">type Counter struct{ N int }
+
+func (c *Counter) Inc() { c.N++ }
+</code></pre>
+          
+        </div>
+      </article>
+    
+      <article class="cheat-card">
+        <header class="cheat-card__header">
+          <h3>Interfaces (implicit)</h3>
+          <div class="cheat-card__meta">
+            
+              <code>go</code>
+            
+          </div>
+        </header>
+
+        <div class="cheat-card__body">
+          
+            <pre><code class="language-go">type Stringer interface {
+	String() string
+}
+
+type User struct{ Email string }
+func (u User) String() string { return u.Email }
+</code></pre>
+          
         </div>
       </article>
     
